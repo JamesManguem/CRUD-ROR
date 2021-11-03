@@ -17,7 +17,17 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
 
+    if @user.save
+
       redirect_to action: 'index'
+      flash[:success] = "¡Se agrego un empleado correctamente!"
+    else
+      redirect_back fallback_location: users_path
+      flash[:error] = "¡upps algo salio mal!#{@user.errors.full_messages.to_sentence}"
+    end
+
+    # name: params[:user][:name], lastname: params[:user][:lastname], email: params[:user][:email], phone: params[:user][:phone]
+    #render json: @article
 
   end
 
