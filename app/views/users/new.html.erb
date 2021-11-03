@@ -1,0 +1,62 @@
+<%= form_with(model: @user, local: true, html: { multipart: true }) do |form| %>
+
+  <br/>
+  <div class="container ">
+    <div class="card center-block">
+      <div class="card-header">
+        Ingresar Usuarios
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">Datos del empleado</h4>
+        <p class="card-text">
+
+
+        <div class="form-group">
+          <%= form.label :name, "Nombre:" %>
+          <%= form.text_field :name %>
+
+        </div>
+
+        <br/>
+        <div class="form-group">
+
+          <%= form.label :lastname, "Apellido:" %>
+          <%= form.text_field :lastname %>
+
+        </div>
+        <br/>
+        <div class="form-group">
+          <%= form.label :email, "Email:" %>
+          <%= form.email_field :email %>
+
+        </div>
+        <br/>
+        <div class="form-group">
+          <%= form.label :phone, "Telefono:" %>
+          <%= form.telephone_field :phone %>
+
+        </div>
+
+        <br/>
+        <div class="form-group">
+          <%= form.file_field :image %>
+
+        </div>
+
+
+        <br/>
+        <div class="form-group">
+
+          <%= button_tag "Ingresar", class: "btn btn-primary" %>
+
+        </div>
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+<% end %>

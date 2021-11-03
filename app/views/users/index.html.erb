@@ -1,0 +1,52 @@
+<br/>
+<%= button_to 'Ingresar nuevo empleado', new_user_path(@user), :method => :get, class: "btn btn-success"%>
+<br/>
+<br/>
+
+
+<table class="table table-light">
+  <thead class="thead-light">
+  <tr>
+    <th>#</th>
+    <th>Foto</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Teléfono</th>
+    <th>Correo</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%=user.id %></td>
+
+      <td>
+        <img class="img-thumbnail" width="100" <%= image_tag user.image %>
+      </td>
+
+      <td><%=user.name %></td>
+
+      <td><%=user.lastname %></td>
+
+      <td><%=user.phone %></td>
+
+      <td><%=user.email %></td>
+
+
+      <td>
+
+        <%= button_to 'Editar', edit_user_path(user), :method => :get, class: "btn btn-warning"%>
+        <%= button_to "Eliminar", { action: "destroy", id: user.id },
+                      method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+        <%#= link_to 'Edit', class:"btn" ,:action => :edit, :id => user.id %>
+
+      </td>
+    </tr>
+
+  <% end %>
+
+
+  </tbody>
+</table>
